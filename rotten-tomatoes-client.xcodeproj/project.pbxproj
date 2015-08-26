@@ -21,7 +21,7 @@
 		F3FB46BD1B8E62E100E5E346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3FB46C01B8E62E100E5E346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3FB46C21B8E62E100E5E346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesViewController.swift; path = "rotten-tomatoes-client/MoviesViewController.swift"; sourceTree = "<group>"; };
+		F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,6 @@
 		F3FB46AA1B8E62E100E5E346 = {
 			isa = PBXGroup;
 			children = (
-				F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */,
 				F3FB46B51B8E62E100E5E346 /* rotten-tomatoes-client */,
 				F3FB46B41B8E62E100E5E346 /* Products */,
 			);
@@ -55,6 +54,7 @@
 		F3FB46B51B8E62E100E5E346 /* rotten-tomatoes-client */ = {
 			isa = PBXGroup;
 			children = (
+				F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */,
 				F3FB46B61B8E62E100E5E346 /* AppDelegate.swift */,
 				F3FB46BA1B8E62E100E5E346 /* Main.storyboard */,
 				F3FB46BD1B8E62E100E5E346 /* Assets.xcassets */,
