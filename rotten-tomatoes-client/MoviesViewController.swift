@@ -11,6 +11,8 @@ import UIKit
 class MoviesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    var movies: [NSDictionary]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,12 @@ class MoviesViewController: UIViewController {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
             do {
                 // TODO: I just want like no options here, wtf
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                if let json = json {
+                    self.movies = json["movies"] as! [NSDictionary]
+                    // leaving off at 9:45 on movie 1 at
+                    // https://www.youtube.com/watch?v=5pis7jNgN3w&index=1&list=PLrT2tZ9JRrf5IZwc6TYr7vJHrsCXY9lPh
+                }
                 print(json)
             } catch {
                 print("fuckin deserialization error")
