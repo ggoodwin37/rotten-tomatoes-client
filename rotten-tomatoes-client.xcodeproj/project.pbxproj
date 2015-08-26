@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		F3FB46B71B8E62E100E5E346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB46B61B8E62E100E5E346 /* AppDelegate.swift */; };
-		F3FB46B91B8E62E100E5E346 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB46B81B8E62E100E5E346 /* ViewController.swift */; };
 		F3FB46BC1B8E62E100E5E346 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3FB46BA1B8E62E100E5E346 /* Main.storyboard */; };
 		F3FB46BE1B8E62E100E5E346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FB46BD1B8E62E100E5E346 /* Assets.xcassets */; };
 		F3FB46C11B8E62E100E5E346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3FB46BF1B8E62E100E5E346 /* LaunchScreen.storyboard */; };
+		F3FB46C91B8E63E700E5E346 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3FB46B31B8E62E100E5E346 /* rotten-tomatoes-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rotten-tomatoes-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3FB46B61B8E62E100E5E346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3FB46B81B8E62E100E5E346 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3FB46BB1B8E62E100E5E346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3FB46BD1B8E62E100E5E346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3FB46C01B8E62E100E5E346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3FB46C21B8E62E100E5E346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoviesViewController.swift; path = "rotten-tomatoes-client/MoviesViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +38,7 @@
 		F3FB46AA1B8E62E100E5E346 = {
 			isa = PBXGroup;
 			children = (
+				F3FB46C81B8E63E700E5E346 /* MoviesViewController.swift */,
 				F3FB46B51B8E62E100E5E346 /* rotten-tomatoes-client */,
 				F3FB46B41B8E62E100E5E346 /* Products */,
 			);
@@ -55,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				F3FB46B61B8E62E100E5E346 /* AppDelegate.swift */,
-				F3FB46B81B8E62E100E5E346 /* ViewController.swift */,
 				F3FB46BA1B8E62E100E5E346 /* Main.storyboard */,
 				F3FB46BD1B8E62E100E5E346 /* Assets.xcassets */,
 				F3FB46BF1B8E62E100E5E346 /* LaunchScreen.storyboard */,
@@ -134,8 +134,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3FB46B91B8E62E100E5E346 /* ViewController.swift in Sources */,
 				F3FB46B71B8E62E100E5E346 /* AppDelegate.swift in Sources */,
+				F3FB46C91B8E63E700E5E346 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +247,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "rotten-tomatoes-client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ggoodwin37.rotten-tomatoes-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -258,6 +259,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "rotten-tomatoes-client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ggoodwin37.rotten-tomatoes-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
