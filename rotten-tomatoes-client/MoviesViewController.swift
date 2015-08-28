@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
 
     var movies: [NSDictionary]?
@@ -16,7 +16,17 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.loadData()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    private func loadData() {
         let url = NSURL(string: "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json")!
         let request = NSURLRequest(URL:url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
@@ -25,9 +35,8 @@ class MoviesViewController: UIViewController {
                     let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
                     if let json = json {
                         self.movies = json["movies"] as? [NSDictionary]
+                        self.tableView.reloadData()
                         print(self.movies)
-                        // leaving off at 9:45 on movie 1 at
-                        // https://www.youtube.com/watch?v=5pis7jNgN3w&index=1&list=PLrT2tZ9JRrf5IZwc6TYr7vJHrsCXY9lPh
                     }
                 } catch {
                     print("fuckin deserialization error")
@@ -38,9 +47,18 @@ class MoviesViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.movies != nil) {
+            return self.movies!.count
+        }
+        return 0
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("com.ggoodwin.ios-rotten-tomatoes-cell", forIndexPath:indexPath);
+        let movie = self.movies![indexPath.row]
+        cell.textLabel?.text = movie["title"] as? String
+        return cell
     }
 
     /*
