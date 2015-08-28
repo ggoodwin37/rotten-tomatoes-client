@@ -20,17 +20,20 @@ class MoviesViewController: UIViewController {
         let url = NSURL(string: "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json")!
         let request = NSURLRequest(URL:url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            do {
-                // TODO: I just want like no options here, wtf
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
-                if let json = json {
-                    self.movies = json["movies"] as! [NSDictionary]
-                    // leaving off at 9:45 on movie 1 at
-                    // https://www.youtube.com/watch?v=5pis7jNgN3w&index=1&list=PLrT2tZ9JRrf5IZwc6TYr7vJHrsCXY9lPh
+            if let data = data {
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
+                    if let json = json {
+                        self.movies = json["movies"] as? [NSDictionary]
+                        print(self.movies)
+                        // leaving off at 9:45 on movie 1 at
+                        // https://www.youtube.com/watch?v=5pis7jNgN3w&index=1&list=PLrT2tZ9JRrf5IZwc6TYr7vJHrsCXY9lPh
+                    }
+                } catch {
+                    print("fuckin deserialization error")
                 }
-                print(json)
-            } catch {
-                print("fuckin deserialization error")
+            } else {
+                print("failed to get data, suck")
             }
         }
     }
@@ -39,7 +42,6 @@ class MoviesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
