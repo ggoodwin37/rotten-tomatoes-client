@@ -19,6 +19,13 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.titleLabel.text = movie["title"] as? String
         self.synopsisLabel.text = movie["synopsis"] as? String
+
+        let imageUrl = NSURL(string: movie.valueForKeyPath("posters.thumbnail") as! String)
+        if let imageUrl = imageUrl {
+            self.posterImageView.setImageWithURL(imageUrl)
+        } else {
+            print("no image url, fuck you")
+        }
     }
 
     override func didReceiveMemoryWarning() {
