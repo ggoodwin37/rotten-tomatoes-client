@@ -39,10 +39,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                         print(self.movies)
                     }
                 } catch {
-                    print("fuckin deserialization error")
+                    print("fuckin deserialization error what is this bullshit")
                 }
             } else {
-                print("failed to get data, suck")
+                print("failed to get data, the internet is saying Fuck You")
             }
         }
     }
@@ -64,7 +64,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         if let imageUrl = imageUrl {
             cell.posterImageView.setImageWithURL(imageUrl)
         } else {
-            print("no image url, fuck you")
+            print("no image url, you really fucked this one up")
         }
         return cell
     }

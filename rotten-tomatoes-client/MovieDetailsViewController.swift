@@ -24,7 +24,7 @@ class MovieDetailsViewController: UIViewController {
         if let imageUrl = imageUrl {
             self.posterImageView.setImageWithURL(imageUrl)
         } else {
-            print("no image url, fuck you")
+            print("no image url, god damn it you're such a shithead")
         }
     }
 
