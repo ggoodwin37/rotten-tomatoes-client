@@ -15,6 +15,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        MBProgressHUD.showHUDAddedTo(self.view, animated: false)
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -30,6 +31,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let url = NSURL(string: "https://gist.githubusercontent.com/timothy1ee/d1778ca5b944ed974db0/raw/489d812c7ceeec0ac15ab77bf7c47849f2d1eb2b/gistfile1.json")!
         let request = NSURLRequest(URL:url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            MBProgressHUD.hideHUDForView(self.view, animated: false)
             if let data = data {
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
