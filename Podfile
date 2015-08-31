@@ -3,6 +3,5 @@
 
 target 'rotten-tomatoes-client' do
   pod "AFNetworking"
-
+  pod 'MBProgressHUD', '~> 0.9.1'
 end
-
