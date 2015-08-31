@@ -10,13 +10,14 @@ import UIKit
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorView: UIView!
 
     var movies: [NSDictionary]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         MBProgressHUD.showHUDAddedTo(self.view, animated: false)
-
+        self.errorView.hidden = true
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.loadData()
@@ -41,9 +42,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                         print(self.movies)
                     }
                 } catch {
+                    self.onNetworkError()
                     print("fuckin deserialization error what is this bullshit")
                 }
             } else {
+                self.onNetworkError()
                 print("failed to get data, the internet is saying Fuck You")
             }
         }
@@ -54,6 +57,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             return self.movies!.count
         }
         return 0
+    }
+
+    func onNetworkError() {
+        self.errorView.hidden = false
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
